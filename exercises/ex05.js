@@ -1,14 +1,18 @@
 /*
-In this exercise, we will be given a normal string of words and turn it into a percent-encoded string by replacing all whitespace with %20.
+In this exercise, we will be given a normal string of words and turn it into a percent-encoded 
+string by replacing all whitespace with %20.
 
 Percent Encoding
 Take a look at the following URL, specifically the last part:
 
 https://www.google.com/search?q=cornerstone%20college
 
-This URL will perform a google search for the term "cornerstone college". Notice that when the string "cornerstone college" is part of a URL, the space is replaced with %20.
+This URL will perform a google search for the term "cornerstone college". 
+Notice that when the string "cornerstone college" is part of a URL, the space is replaced with %20.
 
-If we want to add a parameter to a url, there are certain characters that must be encoded in order to make the URL valid. There are many characters that must be encoded, including: , !, ", and #. For this exercise, we will only be focusing on replacing the space with %20.
+If we want to add a parameter to a url, there are certain characters that must be encoded in order 
+to make the URL valid. There are many characters that must be encoded, including: , !, ", and #. 
+For this exercise, we will only be focusing on replacing the space with %20.
 
 
 Instruction
@@ -19,7 +23,16 @@ Use some sort of looping. Do Not use String.prototype.replace
 */
 
 const urlEncode = function (text) {
-  // Put your solution here
+  // return text.trim().split(" ").join("%20");
+  text = text.trim();
+  let res = "";
+  for (const segm of text) {
+    if (segm === " ")
+      res += "%20";
+    else
+      res += segm;
+  }
+  return res;
 };
 
 console.log(urlEncode("cornerstone college")); //cornerstone%20college
