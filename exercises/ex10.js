@@ -1,14 +1,32 @@
-/*In this exercise, we will be printing multiplication tables to the console.
+/*
+In this exercise, we will be printing multiplication tables to the console.
 
 Multiplication Table
-We will be given a number as our input data. This number is the highest value of our multiplication table. Our job is to generate a multiplication table for the values from 1 to the provided number.
+We will be given a number as our input data. This number is the highest value of our multiplication table. 
+Our job is to generate a multiplication table for the values from 1 to the provided number.
 
-Instruction
-Create a function named multiplicationTable that receives a number maxValue as input and creates a square multiplication table where maxValue is the largest value in the table.
+? Instruction
+Create a function named multiplicationTable that receives a number maxValue as input and creates a square 
+multiplication table where maxValue is the largest value in the table.
 */
 
 const multiplicationTable = function (maxValue) {
-  // Your code here
+  let tables = [];
+  let values;
+  let it = 1;
+  if (maxValue === 1)
+    return "1";
+
+  for (let i = 1; i <= maxValue; i++) {
+    values = [];
+    for (let j = 1; j <= maxValue; j++) {
+      values.push(i * it++)
+    }
+    it = 1
+    tables.push(values.join(" "))
+  }
+
+  return tables.join(`\n`);
 };
 
 console.log(multiplicationTable(1));
