@@ -1,15 +1,29 @@
-/*In this exercise, we will be given a list of instructors and we will create a single object to organize them based on their course.
+/*
+In this exercise, we will be given a list of instructors and we will create a single object to organize them based on 
+their course.
 
-Instruction
-Create a function named organizeInstructors that will receive an array of instructor objects, and will return a new object that has the following format:
+? Instruction
+- Create a function named organizeInstructors that will receive an array of instructor objects, and will return 
+- a new object that has the following format:
 
-{
-  CourseName: [instructors]
-} 
+` {
+`   CourseName: [instructors]
+` } 
 */
 
 const organizeInstructors = function (instructors) {
   // Put your solution here
+  let res = {}
+
+  for (const instructor of instructors) {
+    if (!Object.hasOwn(res, instructor.course))
+      res[instructor.course] = [instructor.name];
+    else 
+      res[instructor.course].push(instructor.name);
+      
+  }
+
+  return res;
 };
 
 console.log(
